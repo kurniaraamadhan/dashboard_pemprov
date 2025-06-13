@@ -1,0 +1,193 @@
+/* assets/css/style.css */
+
+/* --- General Body Styles --- */
+body {
+    font-family: 'Arial', sans-serif; /* Ganti font */
+    margin: 0;
+    
+    /* Properti Flexbox untuk tata letak halaman penuh */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan body mengisi setidaknya 100% tinggi viewport */
+}
+
+/* --- Login Page Background Animation --- */
+.login-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #009688 0%, #4CAF50 100%); /* Gradien awal */
+    animation: gradientBackground 15s ease infinite; /* Animasi gradien */
+    background-size: 200% 200%; /* Ukuran background lebih besar dari viewport */
+    /* --- PENTING: overflow: hidden; DIPINDAH KE SINI --- */
+    /* Ini menyembunyikan scrollbar HANYA untuk halaman login */
+    overflow: hidden; 
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Login Card Styling --- */
+.login-card {
+    background-color: rgba(255, 255, 255, 0.95); /* Transparan sedikit */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Shadow */
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Pastikan di atas background */
+    backdrop-filter: blur(5px); /* Efek blur pada background di belakang */
+    -webkit-backdrop-filter: blur(5px); /* Untuk Safari */
+}
+
+.login-title {
+    color: #004D40;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* --- Logo Animation --- */
+.logo-animation {
+    animation: bounceIn 0.5s ease-out; /* Animasi masuk logo */
+}
+
+/* --- Input Field Styling & Animation --- */
+.form-control.login-input {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease; /* Transisi untuk efek focus */
+}
+
+.form-control.login-input:focus,
+.form-control.login-input.is-focused {
+    border-color: #009688;
+    box-shadow: 0 0 0 0.25rem rgba(0, 150, 136, 0.2); /* Box shadow lebih halus */
+    background-color: #f9f9f9;
+}
+
+/* --- Button Styling --- */
+.btn-primary.login-button {
+    background-color: #009688;
+    border-color: #009688;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary.login-button:hover {
+    background-color: #00796B;
+    border-color: #00796B;
+    transform: translateY(-2px); /* Efek sedikit naik saat hover */
+}
+
+.btn-primary.login-button:active {
+    transform: translateY(0);
+}
+
+/* --- Alert Styling --- */
+.alert {
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* --- Page Specific Styles for Detail Pendaftar & General Layout --- */
+.card-detail {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+.card-detail h4 {
+    color: #009688;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+.info-row {
+    margin-bottom: 10px;
+}
+.info-label {
+    font-weight: bold;
+    color: #555;
+}
+.berkas-item {
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+}
+.berkas-item i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #009688;
+}
+.berkas-item .status-badge {
+    margin-left: auto;
+}
+.berkas-actions button {
+    margin-left: 10px;
+}
+.berkas-actions textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.container.flex-grow-1 {
+    flex-grow: 1;
+}
+
+/* --- Custom Scrollbar Styles (for WebKit browsers like Chrome, Edge, Safari) --- */
+
+/* Mengatur lebar scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar vertikal */
+    height: 10px; /* Tinggi scrollbar horizontal */
+}
+
+/* Mengatur track (jalur) scrollbar */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna latar belakang track */
+    border-radius: 10px; /* Sudut membulat pada track */
+}
+
+/* Mengatur thumb (bagian yang bisa di-drag) scrollbar */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Warna default thumb */
+    border-radius: 10px; /* Sudut membulat pada thumb */
+}
+
+/* Mengatur thumb saat di-hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Warna thumb saat di-hover */
+}
+
+/* Mengatur thumb saat aktif/di-drag */
+::-webkit-scrollbar-thumb:active {
+    background: #333; /* Warna thumb saat aktif */
+}
+
+/* --- Opsional: Custom Scrollbar untuk Firefox (lebih terbatas) --- */
+/* Anda bisa menambahkan ini jika ingin dukungan Firefox */
+html, body {
+    scrollbar-width: thin; /* 'auto' atau 'thin' */
+    scrollbar-color: #888 #f1f1f1; /* Warna thumb track */
+}
